@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<title>Mapa 2.0</title>
+<title>Mapa VTR 2024</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" rel="stylesheet">

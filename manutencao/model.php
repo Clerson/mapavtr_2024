@@ -1,20 +1,23 @@
 <?php
    include "../conexao.php";
    // $order = "ORDER BY id DESC";
-   $sql = "SELECT *, vtr.id as vtrid, manut.id as id FROM manut, vtr WHERE manut.idvtr=vtr.id ";
+   $sql = "SELECT *, manut.id as id FROM manut, vtr WHERE idvtr=vtr.id ";
     // $sql = $sql1.$order;
 
     if (!empty($_GET['idvtr'])) {    
       $idvtr = $_GET['idvtr'];
-      $sql .= "AND vtr.id = $idvtr ORDER BY manut.id DESC";
+      $sql = "SELECT *, manut.id as id FROM manut, vtr WHERE idvtr=$idvtr";
       $result = $conn->query($sql);
       $row = $result->fetch_assoc();
-      $vtrtipo = $row["tipo"];
+      
+      if ($row > 0) {
+      $vtrtipo = $row["vtrtipo"];
       $vtrimg = $row["img"];
       $vtrodomatual = $row["odomatual"];
-   }
+      }
+    }
 
-   if (!empty($_GET['id'])) {    
+    if (!empty($_GET['id'])) {    
       $id = $_GET['id'];
       $sql .= "AND id = $id";
 

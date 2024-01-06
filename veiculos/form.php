@@ -1,15 +1,16 @@
  <?php
 
- $id = $pref = $tipo = $marcamod =$ano =$status =$img = $placa = $chassi = $renavan = $combustivel = $pneu = $odomatual = $outros = $valoratualtgr =  $especie =   $classe = "";
+ $vtrid = $pref = $tipo = $marcamod =$ano =$status = $placa = $chassi = $renavan = $combustivel = $pneu = $odomatual = $outros = $valoratualtgr =  $especie =   $classe = "";
+ $img = "thumb.png";
 
-if(!empty($_GET['id'])) {
+if(!empty($_GET['vtrid'])) {
       
-      $id = $_GET['id'];
-      $sql = "SELECT * FROM vtr WHERE vtrid = $id";
-      $res = mysqli_query($conn, $sql);
-      $row = mysqli_fetch_assoc($res);
+      $vtrid = $_GET['vtrid'];
+      $sql = "SELECT * FROM vtr WHERE vtrid = $vtrid";
+      $res = $conn->query($sql);
+      $row = $res->fetch_assoc();
 
-    $id = $row["vtrid"];
+    $vtrid = $row["vtrid"];
     $pref = $row["vtrpref"];
     $tipo = $row["vtrtipo"];
     $marcamod = $row["vtrmarcamod"];
@@ -35,13 +36,14 @@ if(!empty($_GET['id'])) {
     <img class="card-img-top" src="vtrimg/<?=$img?>" alt="Card image">
     <form action="update_img.php" method="POST" enctype="multipart/form-data">
       <input type="file" class="form-control mt-2" name="fileToUpload" id="fileToUpload" >
-      <input type="text" name="id" value="<?=$id?>" hidden>
+      <input type="text" name="id" value="<?=$vtrid?>" hidden>
       <input type="submit"  class="btn btn-primary mt-2" value="Enviar" name="submit">
     </form>
   </div>
 
   <div class="col-sm">
-    <a href="/manutencao/list2.php?idvtr=<?=$id?>" class="btn btn-warning mb-2"><i class="fas fa-cog"></i> Manutenção</a>
+    <!-- <a href="/manutencao/list2.php?idvtr=<?=$vtrid?>" class="btn btn-warning mb-2"><i class="fas fa-cog"></i> Manutenção</a> -->
+
     <form action='model.php' method='POST' class='row gx-1 gy-1 text-center'>
       <div class="row gx-1 gy-1">
         <div class="col-sm" >
@@ -180,10 +182,10 @@ if(!empty($_GET['id'])) {
         </div>
       </div>
      
-      <input type="text" name="id" value="<?=$id;?>" hidden>
+      <input type="text" name="vtrid" value="<?=$vtrid;?>" hidden>
       
       <div class="form-floating">
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button type="submit" class="btn btn-primary" name="envia" value="envia">Enviar</button>
       </div>
 
     </form>
