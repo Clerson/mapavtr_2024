@@ -44,4 +44,31 @@ if (!empty($_POST['idmapa'])) {
 
 ;}
 
+
+// INICIO DO CRUD DA TABELA "GU"
+
+if (!empty($_POST['pes_id'])) {
+
+    $pes_id = $_POST["pes_id"];
+    $idmapa = $_POST['mapa_id'];
+    $iddetmp = $_POST['detmp_id'];
+    $idvtr = $_POST['idvtr'];
+
+
+    $sql = "
+            INSERT INTO gu (detmp_id, pes_id)
+            VALUES ($iddetmp, $pes_id)
+            ";
+
+
+    if ($conn->query($sql) === TRUE) { 
+
+      echo "<script>location.href='index.php?idmapa=".$idmapa."&idvtr=".$idvtr."&iddetmp=".$iddetmp."'</script>";
+    } else {
+      echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+;}
+
+
 ;?>

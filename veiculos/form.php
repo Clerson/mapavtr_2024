@@ -49,7 +49,7 @@ if(!empty($_GET['vtrid'])) {
         <div class="col-sm" >
           <div class="form-floating">
             <input type="text" class="form-control" name="tipo" value="<?=$tipo; ?>" placeholder="Nomenclatura" >
-            <label for='Nomenclatura'>Nomenclatura</label>
+            <label for='Nomenclatura'>Nomenclaturas</label>
           </div>
         </div>
         <div class="col-sm" >  
