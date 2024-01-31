@@ -63,7 +63,7 @@ do {
     }
 ?>
 
-<div class="col-sm">
+<div class="col-sm bg-light">
   <div class="row">
     <nav class="navbar navbar-expand-sm navbar-dark bg-secondary p-0">
       <div class="container-fluid">
@@ -82,7 +82,7 @@ do {
               <a class="nav-link" href="javascript:void(0)"><?=date('d/m/y', (strtotime($row["data"])));?></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="?idmapa=<?=$idmapa;?>&acao=ins"><i class="fa fa-plus-circle"></i> Adicionar</a>
+              <a class="nav-link btn btn-primary" href="?idmapa=<?=$idmapa;?>&acao=ins"><i class="fa fa-plus-circle"></i> Adicionar</a>
             </li>
           </ul>
         </div>
@@ -133,7 +133,7 @@ do {
 
 if($result_detmapa->num_rows > 0) {
 
-echo "<div class='row' style='min-height:500px'>";
+echo "<div class='row'>";
   
 
       if(!empty($_GET['idvtr'])) { include_once "analit.php"; };

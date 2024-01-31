@@ -11,20 +11,14 @@
 <link rel="icon" type="image/x-icon" href="../img/9bbm.png">
 <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
-<script>
-var h = window.innerHeight;
-</script>
-<style type="text/css">
-  .full-height = var;
-</style>
 
-<body class="bg-light">
+<body class="bg-dark">
 
   <div class="container-fluid" id="container" >
 
-    <div class="row">
+    <div class="row"  style='min-height:550px'>
 
-      <div class="col-sm-2 bg-secondary" >
+      <div class="col-sm-2" >
 
         <nav class="navbar navbar-expand-sm navbar-dark  p-0">
           <div class="container-fluid">
