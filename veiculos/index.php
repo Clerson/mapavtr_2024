@@ -2,82 +2,65 @@
 
 include_once "../templates/header.php";
 require_once "../conexao.php";
-
-  $sql = "SELECT * FROM vtr ORDER BY vtrtipo";
-  $res = $conn->query($sql);
-  $row = $res->fetch_assoc();
-
 ?>
-  <form action="" method="POST" class="row gx-1 gy-1 text-center">
-      <select class="form-select" name="vtrstatus">
-        <option value="" >"Filtrar por status"</option>
-        <option value="ATIVA" >Ativas</option>
-        <option value="INATIVA" >Inativas</option>
-      </select>
-      <div class="form-floating">
-        <input type="submit" class="btn btn-primary" name="">
-    </div>
-  </form>
 
-<div class="p-1 m-2">Número de viaturas: <b><?=$res->num_rows?></b></div>
-
-  <div class="list-group mb-1">
-
-    <a href="?acao=ins" class="list-group-item list-group-item-action"><i class="fas fa-plus-circle"></i> Adicionar</a>
-
-  </div> 
-  
 </div> <!-- FIM DA COLUNA ESQUERDA -->
 
-<div class="col-sm-2" style="overflow-y: scroll; height:600px">
+<div class="col-sm">
 
-	
-<?php if ($res->num_rows > 0) { do {
- 
-    $vtrid = $row["vtrid"];
-    $pref = $row["vtrpref"];
-    $tipo = $row["vtrtipo"];
-    $marcamod = $row["vtrmarcamod"];
-    $ano = $row["vtrano"];
-    $status = $row["vtrstatus"];
-    $img = $row["vtrimg"];
-    $placa = $row["vtrplaca"];
-    $chassi = $row["vtrchassi"];
-    $renavan = $row["vtrrenavan"];
-    $combustivel = $row["vtrcombustivel"];
-    $pneu = $row["vtrpneu"];
-    $odomatual = $row["vtrodomatual"];
-    $outros = $row["vtroutros"];
-    $valoratualtgr = $row["vtrvaloratualtgr"];
-    $especie = $row["vtrespecie"];
-    $classe = $row["vtrclasse"];
+  <div class="row">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-secondary">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynavbar">
 
-    // if(isset($_GET['vtrtipo'])) $tipo = $_GET['vtrtipo']; else $_GET['vtrtipo'] = "";
-?>
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/veiculos"><i class="fas fa-home"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#form_insert"><i class="fa fa-plus-circle"></i> Adicionar</a>
+            </li>
+          </ul>
 
-	<div class="list-group list-group-flush p-1">
-	<a href='?vtrid=<?=$vtrid;?>' class="list-group-item list-group-item-action" aria-current="true">
-	  <div class="d-flex justify-content-between">
-	    <img src='../veiculos/vtrimg/<?=$img;?>' width="60" height="60" class="rounded-circle" >
-	    <h5><?=$tipo;?></h5>
-	  </div>
-	</a>
-	</div>
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/veiculos"><i class="fa fa-truck"></i> VEÍCULOS</a>
+            </li>
+          </ul>
+          
+            <form action="index.php" method="POST" class="row text-center">
+              <div class="d-flex">
+                <select class="form-select" name="vtrstatus">
+                  <option value="" >"Filtrar por status"</option>
+                  <option value="ATIVA" >Ativas</option>
+                  <option value="INATIVA" >Inativas</option>
+                </select>
+                  <input type="submit" class="btn btn-primary ms-1" name="">
+              </div>
+            </form>
+          
 
- <?php } while ($row = $res->fetch_assoc());} ?>
+        </div>
+      </div>
+    </nav>
+  </div>
 
-</div>
+<!-- <div class="col-sm-2" style="overflow-y: scroll; height:600px"> -->
+
 
 <div class="col-sm">
 
 <?php 
-
-if (!empty($_GET['vtrid'])) { include_once 'form.php';};
-if ((!empty($_GET['acao'])) && ($_GET['acao'] == 'ins')) { include_once 'form.php';}
+if (!empty($_GET['acao'])) {
+  if ($_GET['acao'] == 'view') {include_once 'view.php';}
+} else { include_once 'list.php'; }
 
 
 ?>
-
+</div>
 </div>
 
 <?php
@@ -85,3 +68,37 @@ if ((!empty($_GET['acao'])) && ($_GET['acao'] == 'ins')) { include_once 'form.ph
 include_once '../templates/footer.php';
 
 ?>
+
+        <?php require 'insert.php';?>
+
+
+<script>
+$(document).ready(function(){
+
+ load_data();
+
+ function load_data(query)
+ {
+  $.ajax({
+   url:"list.php",
+   method:"POST",
+   data:{query:query},
+   success:function(data)
+   {
+    $('#result').html(data);
+   }
+  });
+ }
+ $('#search_text').keyup(function(){
+  var search = $(this).val();
+  if(search != '')
+  {
+   load_data(search);
+  }
+  else
+  {
+   load_data();
+  }
+ });
+});
+</script>

@@ -36,36 +36,36 @@ if(!empty($_GET['iddetmp'])) {
 		};
 
 		echo "
-				<h3>Data:<b>".."</b></h3>
+				<h3>Data:<b>"."</b></h3>
 
 		";
 
 	
 	$sql_detform = "
-									SELECT iddetmp, 
-													idvtr, 
-													vtrimg, 
-													vtrtipo, 
-													codmil, 
-													nomeguerra, 
-													grad, 
-													img, 
-													odomsaida, 
-													odomentr, 
-													horasaida, 
-													horaentr, 
-													destino, 
-													detmp_status, 
-													obs, 
-													num_rai
+					SELECT iddetmp, 
+							idvtr, 
+							vtrimg, 
+							vtrtipo, 
+							codmil, 
+							nomeguerra, 
+							grad, 
+							img, 
+							odomsaida, 
+							odomentr, 
+							horasaida, 
+							horaentr, 
+							destino, 
+							detmp_status, 
+							obs, 
+							num_rai
 
-									FROM detmapa, 
-											 vtr, 
-											 pessoas
+					FROM detmapa, 
+							vtr, 
+							pessoas
 
-									WHERE iddetmp = $iddetmp 
-												AND idvtr = vtrid 
-												AND idpessoa = codmil
+					WHERE iddetmp = $iddetmp 
+						AND idvtr = vtrid 
+						AND idpessoa = codmil
 				 
 					";
 
