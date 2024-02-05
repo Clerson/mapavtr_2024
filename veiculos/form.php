@@ -1,20 +1,19 @@
+<div class="row gx-1">
 
-        
-      <div class="row gx-1">
+  <div class="col-3 text-center">
+    <img class="card-img-top" src="vtrimg/<?=$img?>" alt="Card image">
+    <form action="update_vtr_img.php" method="POST" enctype="multipart/form-data">
+      <input type="file" class="form-control mt-2" name="fileToUpload" id="fileToUpload" required>
+      <input type="text" name="vtrid" value="<?=$vtrid?>" hidden>
+      <input type="submit"  class="btn btn-primary mt-2" value="Enviar" name="submit">
+    </form>
+  </div>
 
-        <div class="col-3 text-center">
-          <img class="card-img-top" src="vtrimg/<?=$img?>" alt="Card image">
-          <form action="update_img.php" method="POST" enctype="multipart/form-data">
-            <input type="file" class="form-control mt-2" name="fileToUpload" id="fileToUpload" required>
-            <input type="text" name="id" value="<?=$vtrid?>" hidden>
-            <input type="submit"  class="btn btn-primary mt-2" value="Enviar" name="submit">
-          </form>
-        </div>
-
-        <div class="col-sm">
-          <!-- <a href="/manutencao/list2.php?idvtr=<?=$vtrid?>" class="btn btn-warning mb-2"><i class="fas fa-cog"></i> Manutenção</a> -->
+  <div class="col-sm">
+        <a href="/manutencao/list2.php?idvtr=<?=$vtrid?>" class="btn btn-warning mb-2"><i class="fas fa-cog"></i> Manutenção</a>
 
           <form action='model.php' method='POST' class='row gx-1 gy-1 text-center'>
+
             <div class="row gx-1 gy-1">
               <div class="col-sm" >
                 <div class="form-floating">
@@ -35,8 +34,11 @@
                   <label for='marcamod'>Marca/Modelo</label>
                 </div>
               </div>
+
             </div>
-            <div class="row gx-1 gy-1">     
+
+            <div class="row gx-1 gy-1">   
+
               <div class="col-sm" >
                 <div class="form-floating">
                   <input type="text" class="form-control"  name="vtrano"  value="<?=$ano;?>" placeholder="Ano de fabricação" >
@@ -160,8 +162,8 @@
 
           </form>
 
-        </div> <!-- FIM DA COL -->
+  </div> <!-- FIM DA COL -->
         
-      </div> <!-- FIM DA ROW -->
+</div> <!-- FIM DA ROW -->
 
 

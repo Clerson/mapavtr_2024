@@ -20,14 +20,12 @@
 	
 <?php
 
-
-
   $sql = "SELECT * FROM vtr";
 
-  if(!empty($_GET['vtrstatus'])) {
-    $vtrstatus = $_GET['vtrstatus'];
-    $sql .= " WHERE vtrstatus = '$vtrstatus' ORDER BY vtrtipo ASC";
-  };
+  if(!empty($_POST['idvtr'])) { 
+    $idvtr = $_POST['idvtr'];
+    $sql .= " WHERE vtrid=$idvtr ORDER BY vtrtipo ASC";
+    };
 
   $res = $conn->query($sql);
  
@@ -65,29 +63,29 @@
       <div class="card-body"><img src='../veiculos/vtrimg/<?=$img;?>' width="100" height="100" class="rounded-circle" ></div>
     </a>
   </div>
-<!-- The Modal -->
-<div class="modal fade" id="form<?=$vtrid?>">
-  <div class="modal-dialog  modal-xl modal-dialog-centered">
-    <div class="modal-content">
+      <!-- The Modal -->
+      <div class="modal fade" id="form<?=$vtrid?>">
+        <div class="modal-dialog  modal-xl modal-dialog-centered">
+          <div class="modal-content">
 
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title"><?=$tipo;?></h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title"><?=$tipo;?></h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
 
-      <!-- Modal body -->
-      <div class="modal-body">
+            <!-- Modal body -->
+            <div class="modal-body">
 
-          <?php require 'form.php'; ?>
+                <?php require 'form.php'; ?>
 
-        </div> <!-- FIM DA MODAL-BODY -->
+              </div> <!-- FIM DA MODAL-BODY -->
 
-    </div> <!-- FIM DA MODAL-CONTENT -->     
+          </div> <!-- FIM DA MODAL-CONTENT -->     
 
-  </div> <!-- FIM DA MODAL-DIALOG -->
+        </div> <!-- FIM DA MODAL-DIALOG -->
 
-</div> <!-- FIM DA MODAL -->
+      </div> <!-- FIM DA MODAL -->
 
    <?php } while ($row = $res->fetch_assoc());} ?>
 

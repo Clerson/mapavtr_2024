@@ -35,7 +35,7 @@ if(!empty($_GET['iddetmp'])) {
                   WHERE iddetmp = $iddetmp 
                         AND idvtr = vtrid 
                         AND idpessoa = codmil 
-                        ORDER BY iddetmp DESC 
+                  ORDER BY iddetmp DESC 
             
           ";
 
@@ -58,7 +58,23 @@ if(!empty($_GET['iddetmp'])) {
   $status = $row_detform["detmp_status"];
   $obs = $row_detform["obs"];
   $num_rai = $row_detform["num_rai"];
-} 
+
+    $res_guc = $conn->query("
+                          SELECT
+                          detmp_id,
+                          codmil, 
+                          nomeguerra, 
+                          grad,
+                          rg, 
+                          img
+                          FROM gu, pessoas
+                          WHERE detmp_id = $iddetmp
+                          AND pes_id = codmil 
+                        ");
+
+
+
+}; 
 
   if(isset($_GET['vtrid'])) $vtrid = $_GET['vtrid'];
   if(isset($_GET['vtrtipo'])) $vtrtipo = $_GET['vtrtipo'];
@@ -66,9 +82,9 @@ if(!empty($_GET['iddetmp'])) {
   if(isset($_GET['pessoaimg'])) $pessoaimg = $_GET['pessoaimg'];
   if(isset($_GET['vtrimg'])) $vtrimg = $_GET['vtrimg'];    
   if(isset($_GET['odomsaida'])) $odomsaida = $_GET['odomsaida'];
-  if(isset($_GET['odomsaida'])) $odomentr = $_GET['odomsaida']; 
+  if(isset($_GET['odomsaida'])) $odomentr = $_GET['odomsaida'];
 
-;?>
+ ;?>
 
     <div class="col-sm">
       <?php if (!empty($_GET['alert'])) {
@@ -105,7 +121,7 @@ if(!empty($_GET['iddetmp'])) {
             <label for='idvtr'>Veículo:</label>
           </div>
 
-          <div class="form-floating p-0" style="width: 46px" id="img">
+          <div class="form-floating p-0 shadow-sm" style="width: 46px" id="img">
             <img src="../pessoas/pessoas_img/<?=$pessoaimg?>" class='rounded-2' width='46' height="56" alt="<?=$nomeguerra;?>">
           </div>
           <div class='form-floating col-sm' id="pessoa">
@@ -124,6 +140,10 @@ if(!empty($_GET['iddetmp'])) {
                 ?>
             </select>
             <label for='pessoa' class='form-label'>Motorista:</label>
+          </div>
+
+          <div class="col-sm-2">
+            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#gu">Guarnição</a>
           </div>
 
           <div class="input-group" id='odomentr'>
@@ -175,22 +195,30 @@ if(!empty($_GET['iddetmp'])) {
           <label for="status">Status:</label>
         </div>
 
+                <?php /*include_once "_gu.php"*/;?>
+
+
         <div class="form-floating"> 
-          <textarea rows="5" cols="50" class="form-control shadow-sm" name="obs" placeholder="obs"><?=$obs;?></textarea>
+          <textarea rows="5" class="form-control shadow-sm m-0" name="obs">
+            <?=$obs;?>
+          </textarea>
           <label for="obs">Observações:</label>
         </div>
-          <input type="text" name="idmapa" value="<?=$idmapa;?>" hidden>
-          <input type='text' name='iddetmp' value='<?=$iddetmp;?>' hidden>
 
         <div class="form-floating">
           <?php if(!empty($_GET['iddetmp'])) { ;?>
             <a href="?idmapa=<?=$idmapa;?>&acao=ins&vtrtipo=<?=$vtrtipo;?>&idpessoa=<?=$idpessoa;?>&odomsaida=<?=$odomentr;?>&vtrimg=<?=$vtrimg;?>&pessoaimg=<?=$pessoaimg;?>" class="btn btn-info"><i class="fas fa-plus-circle"></i> Nova Rota / Duplicar</a>
           <?php } ;?>
-          
+          <input type="text" name="idmapa" value="<?=$idmapa;?>" hidden>
+          <input type='text' name='iddetmp' value='<?=$iddetmp;?>' hidden>
           <button type="submit" class="btn btn-success"><i class="far fa-thumbs-up"></i> Salvar</button>
         </div>
       </form>
- </div> 
+ </div>
+
+
+        <?php include_once "_gu_card.php";?>
+        
  
 <script>
 function atualizaHoraChegada() {  

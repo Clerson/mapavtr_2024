@@ -12,19 +12,19 @@
 <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
 
-<body class="bg-light">
+<body class="bg-dark">
 
-  <div class="container-fluid">
+  <div class="container-fluid" id="container" >
 
     <div class="row">
 
-      <div class="col-sm-2 p-0" >
+      <div class="col-sm-2" >
 
-        <nav class="navbar navbar-expand-sm bg-secondary navbar-dark  p-0">
+        <nav class="navbar navbar-expand-sm navbar-dark  p-0">
           <div class="container-fluid">
-<!--             <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="#">
               <img src="../img/9bbm.png" alt="Logo" height="30" width="30" class="rounded-pill p-0"> 
-            </a> -->
+            </a>
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="index.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">

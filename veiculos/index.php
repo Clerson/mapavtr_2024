@@ -31,14 +31,21 @@ require_once "../conexao.php";
             </li>
           </ul>
           
-            <form action="index.php" method="POST" class="row text-center">
+            <form action="" method="POST" class="row text-center">
               <div class="d-flex">
-                <select class="form-select" name="vtrstatus">
-                  <option value="" >"Filtrar por status"</option>
-                  <option value="ATIVA" >Ativas</option>
-                  <option value="INATIVA" >Inativas</option>
-                </select>
-                  <input type="submit" class="btn btn-primary ms-1" name="">
+              <select class='form-select shadow-sm' id='idvtr' name='idvtr'>
+              <option> Selecione viatura</option>
+              <?php
+                $sql = "SELECT vtrid, vtrimg, vtrtipo FROM vtr ORDER BY vtrtipo ASC";
+                $res = $conn->query($sql);
+                $row = $res->fetch_assoc();
+               do { ?> 
+                <option value='<?=$row['vtrid']?>'>
+                  <?=$row['vtrtipo']?>
+                </option>
+                <?php } while ($row=$res->fetch_assoc()) ?>
+              </select>
+                <input type="submit" class="btn btn-primary ms-1" name="">
               </div>
             </form>
           

@@ -17,7 +17,7 @@ include 'model.php';
 
     <div class='container1 col-sm-2 m-0 shadow-sm rounded-3'>
       <a href='#' data-bs-toggle="modal" data-bs-target="#updatepessoa<?=$codmil?>">
-        <img class="image"  src="pessoas_img/<?=$img;?>" alt="Card image" width="180" height="180">
+        <img class="image"  src="pessoas_img/<?=$img;?>" alt="Card image" width="180" height="210">
         <div class="middle">
           <div class="vtrtitle"><?=$grad."<b> ".$nomeguerra." <br/>".$rg;?></b></div>
         </div>

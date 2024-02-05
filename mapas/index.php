@@ -19,8 +19,6 @@ $row = $res->fetch_assoc();
 
 $sql_p = "SELECT codmil, nomeguerra FROM pessoas WHERE pstatus = 's' ORDER BY nomeguerra ASC";
 
-// include_once 'menu.php';
-
 ?>
 
         <div class="list-group mb-1">
@@ -30,7 +28,7 @@ $sql_p = "SELECT codmil, nomeguerra FROM pessoas WHERE pstatus = 's' ORDER BY no
      
 </div>
 
-  <div class="col-sm-3" style="overflow-y: scroll; height: 500px;">
+  <div class="col-sm-3" style="overflow-y: scroll; height: 570px;">
 
     <?php
 
