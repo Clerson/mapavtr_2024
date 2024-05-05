@@ -15,17 +15,12 @@
 
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link btn btn-info shadow me-1" href="?p=<?=$p;?>&idmapa=<?=$idmapa;?>">
-                ALA <b><?=$row['ala'];?></b>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link btn btn-info shadow me-1" href="?p=<?=$p;?>&idmapa=<?=$idmapa;?>">
+              <a class="nav-link" href="?p=mapadet&idmapa=<?=$idmapa;?>">
                 <?=date('d/m/y', (strtotime($row["data"])));?>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-info shadow me-1" href="?p=<?=$p;?>&idmapa=<?=$idmapa;?>&acao=ins">
+              <a class="nav-link btn btn-info shadow me-1" href="?p=mapadet&idmapa=<?=$idmapa;?>&acao=ins">
                 <i class="fa fa-plus-circle"></i> NOVA SAÍDA
               </a>
             </li>
@@ -137,13 +132,10 @@
 
           <div class="list-group list-group-flush">
             <a href='?p=mapadet&idmapa=<?=$idmapa;?>&idvtr=<?=$idvtr;?>' class="list-group-item list-group-item-action
-              <?php 
-              if((isset($_GET['idvtr'])) && $_GET['idvtr'] == $idvtr) echo "active"
-              ;?>
-              " >
-              <div class="d-flex justify-content-between m-auto">
-                <img src='../veiculos/vtrimg/<?=$img;?>' width="60" >
-                <h5><?=$tipo;?></h5>
+              <?php if((isset($_GET['idvtr'])) && $_GET['idvtr'] == $idvtr) echo "active";?>" style="height:70px">
+              <div class="d-flex justify-content-between">
+                <img src='../veiculos/img/<?=$img;?>' class="my-auto" width="60px">
+                <h5 class="my-auto"><?=$tipo;?></h5>
               </div>
             </a>
           </div>

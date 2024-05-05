@@ -1,5 +1,5 @@
 <div class="modal fade" id="form_insert">
-  <div class="modal-dialog  modal-xl modal-dialog-centered">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
 
       <!-- Modal Header -->
@@ -13,7 +13,7 @@
         <div class="row gx-1 gy-1 text-center">
           <div class="col-sm">
 
-            <form action='?p=veiculos' method='POST' class='row gx-1 gy-1 text-center'>
+            <form action='<?=$param1;?>' method='POST' class='row gx-1 gy-1 text-center'>
             <div class="row gx-1 gy-1">
               <div class="col-sm" >
                 <div class="form-floating">
@@ -151,11 +151,12 @@
                 </div>
               </div>
             </div>
-           
-            <input type="text" name="vtrid" hidden>
             
-            <div class="form-floating">
-              <button type="submit" class="btn btn-primary" name="envia" value="envia">Enviar</button>
+
+            <input type="text" name="vtrid" hidden>
+
+             <div class="form-floating">
+              <button type="submit" class="btn btn-primary" name="envia" value="insert">Enviar</button>
             </div>
 
           </form>

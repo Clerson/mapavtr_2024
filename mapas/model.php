@@ -69,7 +69,7 @@ if(!empty($_POST['acao'])) {
           if ($conn->query($sql) === TRUE) {
             $mapa_ultimo_registro = $conn->insert_id;
             
-                  echo "<script>location.href='/mapadet/?idmapa=".$mapa_ultimo_registro."&acao=ins'</script>";
+                  echo "<script>location.href='?p=mapadet&idmapa=".$mapa_ultimo_registro."&acao=ins'</script>";
                   echo " 
                     <div class='conteiner-fluid text-center p-2'>
                     <button class='btn btn-primary' disabled>
@@ -101,7 +101,7 @@ if(!empty($_POST['acao'])) {
                     ";
           if ($conn->query($sql) === TRUE) {
                 
-                  echo "<script>location.href='/mapadet/index.php?idmapa=".$idmapa."'</script>";
+                  echo "<script>location.href='?p=mapa&idmapa=".$idmapa."'</script>";
                 } else {
                   echo "Error: " . $sql . "<br>" . $conn->error;
                 }

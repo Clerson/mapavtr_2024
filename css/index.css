@@ -5,11 +5,17 @@ a:link .dropdown-item {color: red;}
 
 a:hover {border: 1px;}
 
-body {
-    background-color: #ffffff;
-  background-image: url("../img/bg.jpg");
-  background-repeat: no-repeat;
-  background-position: right top;
+
+
+
+
+.ubuntu-sans-<uniquifier> {
+  font-family: "Ubuntu Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }
 
 .container1 {

@@ -49,8 +49,8 @@ if (!empty($_POST['idmapa'])) {
 
           echo "
             <script>
-            window.alert('Registro SALVO com sucesso!');
-            location.href='?p=mapadet&idmapa=".$idmapa."&idvtr=".$idvtr."&iddetmp=".$iddetmp."&alert=edit'
+            location.href='?p=mapadet&idmapa=".$idmapa."&idvtr=".$idvtr."&iddetmp=".$iddetmp."&alert=edit';
+            window.alert('Registro SALVO com sucesso!')
             </script>
             ";
         } else {

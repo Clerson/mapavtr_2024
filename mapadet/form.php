@@ -87,8 +87,8 @@ if(!empty($_GET['iddetmp'])) {
         ";
       ;};?>
       <form action='?p=<?=$p;?>&idmapa=<?=$idmapa;?>&acao=env' method='POST' class='row gx-2 gy-2 text-center'>
-          <div class="col-sm-1 bg-light rounded-2 p-0" id="vtr">
-            <img src="../veiculos/vtrimg/<?=$vtrimg; ?>" alt="<?=$vtrtipo; ?>" width="52" height='58'>
+          <div class="col-sm-1 bg-light rounded-2" id="vtr">
+            <img src="../veiculos/img/<?=$vtrimg; ?>" alt="<?=$vtrtipo; ?>" width="52">
           </div>
           <div class='col-sm form-floating' width='200'> 
             <select class='form-select shadow' id='idvtr' name='idvtr' onchange='atualizaOdomVtr(this.value); mostrarFotoVtr(this.value)' required>

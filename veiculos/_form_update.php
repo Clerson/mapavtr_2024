@@ -1,6 +1,6 @@
 
 <div class="modal fade" id="idvtr<?=$vtrid?>">
-  <div class="modal-dialog modal-xl modal-dialog-centered" >
+  <div class="modal-dialog modal-lg modal-dialog-centered" >
     <div class="modal-content">
       <!-- Modal Header -->
       <div class="modal-header">
@@ -13,18 +13,18 @@
 <div class="row gx-1">
 
   <div class="col-3 text-center">
-    <img class="card-img-top" src="veiculos/vtrimg/<?=$img?>" alt="Card image">
-    <form action="update_vtr_img.php" method="POST" enctype="multipart/form-data">
+    <img class="card-img-top" src="<?=$uri_img.$img?>" alt="Card image">
+    <form action="<?=$param1;?>" method="POST" enctype="multipart/form-data">
       <input type="file" class="form-control mt-2" name="fileToUpload" id="fileToUpload" required>
       <input type="text" name="vtrid" value="<?=$vtrid?>" hidden>
-      <input type="submit"  class="btn btn-primary mt-2" value="Enviar" name="submit">
+      <input type="submit"  class="btn btn-primary mt-2" value="Enviar" name="enviaimg">
     </form>
   </div>
 
   <div class="col-sm">
         <!-- <a href="/manutencao/list2.php?idvtr=<?=$vtrid?>" class="btn btn-warning mb-2"><i class="fas fa-cog"></i> Manutenção</a> -->
 
-          <form action='?p=veiculos' method='POST' class='row gx-1 gy-1 text-center'>
+          <form action='<?=$param1;?>' method='POST' class='row gx-1 gy-1 text-center'>
 
             <div class="row gx-1 gy-1">
               <div class="col-sm" >
@@ -104,10 +104,13 @@
               <div class="col-sm" >
                 <div class="form-floating">
                   <?php
-                    $res_odomentr= $conn->query("SELECT odomentr FROM detmapa WHERE idvtr = $vtrid ORDER BY iddetmp DESC");
-                    $row_odomentr = $res_odomentr->fetch_assoc();
                     $odomentr = "";
-                    if($row_odomentr['odomentr'] != "" ) { $odomentr = $row_odomentr['odomentr'];}
+                    $res_odomentr= $conn->query("SELECT odomentr FROM detmapa WHERE idvtr = $vtrid ORDER BY iddetmp DESC");
+                      if ($row_odomentr = $res_odomentr->fetch_assoc()) 
+                      {
+                        $row_odomentr = $res_odomentr->fetch_assoc();
+                        $odomentr = $row_odomentr['odomentr'];
+                      }
                   ;?> 
                   <input type="text" class="form-control"  name="vtrodomatual"  value="<?=$odomentr;?>"  disabled>
                   <label for='odomatual'>Odometro atual (Mapa)</label>
@@ -176,7 +179,7 @@
             <input type="text" name="vtrid" value="<?=$vtrid;?>" hidden>
             
             <div class="form-floating">
-              <button type="submit" class="btn btn-primary" name="envia" value="envia">SALVAR</button>
+              <button type="submit" class="btn btn-primary" name="envia" value="update">SALVAR</button>
             </div>
 
           </form>

@@ -1,5 +1,5 @@
   
-  <div class="col-sm-2 p-0">
+  <div class="col-sm-1 p-0">
 
     <?php require_once "conexao.php";
       
@@ -15,7 +15,7 @@
 ;?>
 
 <div class="list-group list-group-flush">
-  <a href="?p=veiculos&especie=<?=$especie;?>" class="list-group-item list-group-item-action"> 
+  <a href="<?=$param1.$param4.$especie;?>" class="list-group-item list-group-item-action"> 
     <div class="d-flex justify-content-between">
       <h6><?=$especie;?></h6>
       <div class="badge bg-warning text-dark shadow my-auto"><?=$vtrqnt;?></div>

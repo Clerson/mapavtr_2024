@@ -36,7 +36,7 @@
     $row = $res->fetch_assoc();
     $img = $row['vtrimg'];
     $tipo = $row['vtrtipo']; 
-    echo "<img src='../veiculos/vtrimg/$img' alt='$tipo' width='52' height='58'>";   
+    echo "<img src='../veiculos/img/$img' alt='$tipo' width='52' height='58'>";   
   };
 
 

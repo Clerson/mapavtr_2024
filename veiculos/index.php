@@ -7,7 +7,7 @@
 
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a href="?p=veiculos" class="nav-link  btn btn-info shadow m-1"><i class='fas fa-home'></i> INÍCIO</a>
+              <a href="<?=$param1;?>" class="nav-link  btn btn-info shadow m-1"><i class='fas fa-home'></i> INÍCIO</a>
             </li>
             <li class="nav-item">
               <a class="nav-link btn btn-info shadow m-1" href="#" data-bs-toggle="modal" data-bs-target="#form_insert"><i class="fa fa-plus-circle"></i> NOVO VEÍCULO</a>
@@ -20,13 +20,20 @@
               $res_status = $conn->query("SELECT vtrstatus, count(*) AS qnt FROM vtr GROUP BY vtrstatus");
               $row_status = $res_status->fetch_assoc();
 
+
               if($res_status->num_rows > 0) { 
 
-                 do { ?>
+                 do { 
+
+                    $vtrstatus_status = $row_status['vtrstatus'];
+                    $vtrqnt_status = $row_status['qnt'];
+
+
+                    ?>
                   
-                    <a href="?p=veiculos&vtrstatus=<?=$row_status['vtrstatus'];?>">
-                      <span class="badge rounded-pill bg-info text-dark"><?=$row_status['vtrstatus'];?> 
-                      <span class="badge bg-primary"><?=$row_status['qnt'];?></span></span>
+                    <a href="<?=$param1.$param3.$vtrstatus_status;?>">
+                      <span class="badge rounded-pill bg-info text-dark"><?=$vtrstatus_status;?> 
+                      <span class="badge bg-primary"><?=$vtrqnt_status;?></span></span>
                     </a>
                   
                 <?php } while ($row_status = $res_status->fetch_assoc()); }; ?>
@@ -34,8 +41,8 @@
             </ul>
 
           <div class="d-flex">
-            <form action="?p=veiculos" method="POST" class="d-flex gx-1 gy-1 my-auto">
-            <select class='form-select shadow-sm mx-1' name="vtrid" id='search_text'>
+            <form action="<?=$param1;?>" method="POST" class="d-flex gx-1 gy-1 my-auto">
+            <select class='form-select shadow-sm mx-1' name="get_vtrid" id='search_text'>
               <option value=''> Selecione viatura</option>
               <?php
                 require_once 'conexao.php';

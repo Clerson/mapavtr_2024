@@ -1,5 +1,5 @@
 <?php 
-require_once 'model.php';
+require_once 'mapas/model.php';
 ;?>
 
        <h6 class="my-auto me-2">MAPA DE VTR</h6>

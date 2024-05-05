@@ -6,8 +6,6 @@
 
   if ($res->num_rows > 0) {  
 
-    $row = $res->fetch_assoc();
-
     do {
  
     $vtrid = $row["vtrid"];
@@ -27,20 +25,23 @@
     $valoratualtgr = $row["vtrvaloratualtgr"];
     $especie = $row["vtrespecie"];
     $classe = $row["vtrclasse"];
+
 ?>
 
-	<div class="card col-sm-2 p-0 shadow <?php if($status == 'INATIVA') echo "bg-secondary";?>">
-    <a href='#' data-bs-toggle="modal" data-bs-target="#idvtr<?=$vtrid?>" class="nav-link">
+	<div class="card col-sm-2 m-1 shadow <?php if($status == 'INATIVA') echo "bg-secondary";?> text-center">
+    <a href='<?=$param1.$param2.$vtrid;?>' class="nav-link">
       <div class="card-header"><h5><?=$tipo;?></h5></div>
-      <div class="card-body"><img src='veiculos/vtrimg/<?=$img;?>' width="100%" class="rounded-circle" ></div>
+      <div class="card-body"><img src='<?=$uri_img.$img;?>' width="80%" class="rounded-circle" ></div>
+      <?php
+        if(!empty($_REQUEST['get_vtrid'])) { ?>
+      <div class="card-footer"><a href='#' class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idvtr<?=$vtrid?>">Editar</a></div>
+      <?php } ?>
     </a>
   </div>
 
-   <?php
+   <?php  } while ($row = $res->fetch_assoc());
 
     include '_form_update.php';
-
-    } while ($row = $res->fetch_assoc());
 
   };?>
 

@@ -9,11 +9,15 @@
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" rel="stylesheet">
 <link rel="icon" type="image/x-icon" href="img/logo_9bbm.png">
 <link rel="stylesheet" type="text/css" href="css/index.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
 </head>
 
 <body style=" background-image: url('img/vtr_bg.png');
               background-repeat: repeat;
               background-position: right top;
+              font-family: 'Ubuntu Sans', sans-serif;
             ">
 
   <div class="container-fluid" id="container" >
@@ -57,22 +61,21 @@
 
     		<?php 
 
-        $acao = "";
-        $url='mapas/index.php';
+        $uri='mapas/index.php';
 
         if(!empty($_GET['p'])) {
 
           $p=$_GET['p'];
 
           switch ($p) {
-            case 'mapas'; $url='mapas/index.php'; break;
-            case 'mapadet'; $url='mapadet/index.php'; break;
-            case 'pessoas'; $url='pessoas/index.php'; break;
-            case 'veiculos'; $url='veiculos/index.php'; break;
+            case 'mapas';     $uri='mapas/index.php';     $param1="?p=mapas";     break;
+            case 'mapadet';   $uri='mapadet/index.php';   $param1="?p=mapadet";   break;
+            case 'pessoas';   $uri='pessoas/index.php';   $param1="?p=pessoas";   break;
+            case 'veiculos';  $uri='veiculos/index.php';  $param1="?p=veiculos";  break;
           }  
         }
 
-        include $url
+        include $uri
 
         ;?>
 

@@ -64,15 +64,16 @@
 
           ?>
 
-          "> 
+          "
+          style="height:70px"> 
 
           <div class="d-flex justify-content-between">
-            <img  src="../veiculos/vtrimg/<?=$vtrimg ;?>" width="60">
+            <img  src="../veiculos/img/<?=$vtrimg ;?>" width="60"  class="my-auto">
             <div class="text-center">
               <h6><?=$vtrtipo;?></h6>
               <div class="badge bg-warning text-dark shadow"><?=$destino."-".$horasaida."h -".$horaentr."h";?></div>
             </div>
-            <img  src="../pessoas/pessoas_img/<?=$pessoaimg; ?>" class="rounded-2 shadow-sm" width="38" height="48" >
+            <img  src="../pessoas/pessoas_img/<?=$pessoaimg; ?>" class="rounded-2 shadow my-auto" width="38" >
           </div>
          </a>
        </div>
