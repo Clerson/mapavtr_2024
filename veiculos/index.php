@@ -70,6 +70,14 @@
       include 'categ.php';
 
       include 'card.php';
+
+      if(!empty($_GET['form'])){
+
+        require "control.php";
+
+      } 
+         
+      
         
     ?>
 

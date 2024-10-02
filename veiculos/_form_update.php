@@ -14,17 +14,13 @@
 
   <div class="col-3 text-center">
     <img class="card-img-top" src="<?=$uri_img.$img?>" alt="Card image">
-    <form action="<?=$param1;?>" method="POST" enctype="multipart/form-data">
-      <input type="file" class="form-control mt-2" name="fileToUpload" id="fileToUpload" required>
-      <input type="text" name="vtrid" value="<?=$vtrid?>" hidden>
-      <input type="submit"  class="btn btn-primary mt-2" value="Enviar" name="enviaimg">
-    </form>
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#alteraimg">IMAGEM</button>
   </div>
 
   <div class="col-sm">
         <!-- <a href="/manutencao/list2.php?idvtr=<?=$vtrid?>" class="btn btn-warning mb-2"><i class="fas fa-cog"></i> Manutenção</a> -->
 
-          <form action='<?=$param1;?>' method='POST' class='row gx-1 gy-1 text-center'>
+          <form action='<?=$param1.$param5;?>update' method='POST' class='row gx-1 gy-1 text-center'>
 
             <div class="row gx-1 gy-1">
               <div class="col-sm" >
@@ -106,7 +102,7 @@
                   <?php
                     $odomentr = "";
                     $res_odomentr= $conn->query("SELECT odomentr FROM detmapa WHERE idvtr = $vtrid ORDER BY iddetmp DESC");
-                      if ($row_odomentr = $res_odomentr->fetch_assoc()) 
+                      if ($res_odomentr->num_rows > 0 ) 
                       {
                         $row_odomentr = $res_odomentr->fetch_assoc();
                         $odomentr = $row_odomentr['odomentr'];
@@ -196,4 +192,30 @@
   </div>
 </div>
 
+
+<div class="modal fade" id="alteraimg">
+  <div class="modal-dialog" >
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title"><i class="fas fa-user"></i> Alterando Imagem de <?=$tipo?> (#<?=$vtrid?>)<h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body mx-auto">
+
+        <form action="<?=$param1;?>" method="POST" enctype="multipart/form-data" class="gx-1 gy-1 text-center">
+          <img class="card-img-top w-50" src="<?=$uri_img.$img?>" alt="Card image">
+          <input type="file" class="form-control mt-2" name="fileToUpload" id="fileToUpload" required>
+          <input type="text" name="vtrid" value="<?=$vtrid?>" hidden>
+          <input type="submit"  class="btn btn-primary mt-2" value="Enviar" name="enviaimg">
+        </form>        
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
 

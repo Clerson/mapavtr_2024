@@ -32,9 +32,9 @@ background-repeat: repeat;
         <div class="offcanvas-body">
           <nav class="navbar">
             <ul class="navbar-nav">
-                  <li class="nav-item"><a class="nav-link mx-2" href="/mapas"><h6><i class="fas fa-map"></i> MAPAS</a></li></h6>
-                  <li class="nav-item"><a class="nav-link mx-2" href="/veiculos"><h6><i class='fas fa-ambulance'></i> VEÍCULOS</a></li></h6>
-                  <li class="nav-item"><a class="nav-link mx-2" href="/pessoas"><h6><i class='fas fa-users'></i>  PESSOAS</a></li></h6>
+                  <li class="nav-item"><a class="nav-link mx-2" href="/mapas"><h6><i class="fas fa-map"></i> MAPAS</h6></a></li>
+                  <li class="nav-item"><a class="nav-link mx-2" href="/veiculos"><h6><i class='fas fa-ambulance'></i> VEÍCULOS</h6></a></li>
+                  <li class="nav-item"><a class="nav-link mx-2" href="/pessoas"><h6><i class='fas fa-users'></i>  PESSOAS</h6></a></li>
             </ul>
           </nav>
         </div>

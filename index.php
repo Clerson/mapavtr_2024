@@ -48,7 +48,7 @@
 <div class="col-sm">
 
   <div class="row">
-    <nav class="navbar navbar-expand-sm navbar-light bg-secondary">
+    <nav class="navbar navbar-expand-sm bg-secondary">
       <div class="container-fluid">
 
         <ul class="navbar-nav me-auto">
@@ -72,8 +72,9 @@
             case 'mapadet';   $uri='mapadet/index.php';   $param1="?p=mapadet";   break;
             case 'pessoas';   $uri='pessoas/index.php';   $param1="?p=pessoas";   break;
             case 'veiculos';  $uri='veiculos/index.php';  $param1="?p=veiculos";  break;
-          }  
-        }
+          };
+
+        };
 
         include $uri
 

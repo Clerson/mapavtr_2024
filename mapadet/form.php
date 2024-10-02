@@ -88,7 +88,7 @@ if(!empty($_GET['iddetmp'])) {
       ;};?>
       <form action='?p=<?=$p;?>&idmapa=<?=$idmapa;?>&acao=env' method='POST' class='row gx-2 gy-2 text-center'>
           <div class="col-sm-1 bg-light rounded-2" id="vtr">
-            <img src="../veiculos/img/<?=$vtrimg; ?>" alt="<?=$vtrtipo; ?>" width="52">
+            <img src="../veiculos/img/<?=$vtrimg; ?>" alt="<?=$vtrtipo; ?>" width="100%">
           </div>
           <div class='col-sm form-floating' width='200'> 
             <select class='form-select shadow' id='idvtr' name='idvtr' onchange='atualizaOdomVtr(this.value); mostrarFotoVtr(this.value)' required>
@@ -107,7 +107,7 @@ if(!empty($_GET['iddetmp'])) {
           </div>
 
           <div class="col-sm-1" id="img">
-            <img src="../pessoas/pessoas_img/<?=$pessoaimg?>" class='rounded-2' width='46' height="56" alt="<?=$nomeguerra;?>">
+            <img src="../pessoas/pessoas_img/<?=$pessoaimg?>" class='rounded-2' width='100%' height="56" alt="<?=$nomeguerra;?>">
           </div>
           <div class='form-floating col-sm' id="pessoa">
             <select class='form-select shadow' name='pessoa' onchange="mudarFotoMotorista(this.value)" required>
@@ -145,6 +145,7 @@ if(!empty($_GET['iddetmp'])) {
           </div>
           <div class="col-sm form-floating"> 
             <select class="form-select shadow" name="destino" id="destino" onchange="mostrarCampoNumRai(this.value)"  required>
+              <option value="7º CRBM" <?php if($destino == '7º CRBM') echo 'selected';?>>7º CRBM</option>
               <option value="9º BBM" <?php if($destino == '9º BBM') echo 'selected';?>>9º BBM</option>
               <option value="Abastecimento" <?php if($destino == 'Abastecimento') echo 'selected';?>>Abastecimento</option>
               <option value="Ocorrencia" <?php if(($destino == 'Ocorrencia') or ($destino == ''))  echo 'selected';?>>Ocorrência</option>

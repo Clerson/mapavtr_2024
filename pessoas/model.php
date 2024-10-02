@@ -28,36 +28,6 @@
     $sql_pessoas .= $where.$order_by;
     $result_pessoas = $conn->query($sql_pessoas);
       
-
-
-      
-if(!empty($_GET['delete'])) {
-
-    $codmil = $_GET['delete'];
-
-     $sql_delete = "DELETE FROM pessoas WHERE codmil=$codmil";
-
-     if ($conn->query($sql_delete) === TRUE) {            
-
-        echo " 
-            <div class='conteiner-fluid text-center p-2'>
-            <button class='btn btn-primary' disabled>
-            <span class='spinner-border spinner-border-sm'></span>
-            Carregando... 
-            </button>
-            </div>
-            ";
-        echo "
-        <script>location.href='/pessoas'</script>";
-      } else {
-        echo "Error: " . $sql_delete . "<br>" . $conn->error;
-      } exit();
-    
-    } // FIM DA if(($acao) == 'delete')
-
-
-
-
 if (isset($_POST['acao'])) {
 
     $grad = $_POST["grad"];
@@ -87,10 +57,34 @@ if (isset($_POST['acao'])) {
     if ($conn->query($sql) === TRUE) {
       echo "<script>location.href='?p=pessoas'</script>";
     } else {
-      echo "Error: " . $sql . "<br>" . $conn->error;
-    }
+              echo "Error: " . $sql . "<br>" . $conn->error;
+            }
 
 }
+
+if(!empty($_GET['delete'])) {
+
+    $codmil = $_GET['delete'];
+
+     $sql_delete = "DELETE FROM pessoas WHERE codmil=$codmil";
+
+     if ($conn->query($sql_delete) === TRUE) {            
+
+        echo " 
+            <div class='conteiner-fluid text-center p-2'>
+            <button class='btn btn-primary' disabled>
+            <span class='spinner-border spinner-border-sm'></span>
+            Carregando... 
+            </button>
+            </div>
+            ";
+        echo "
+        <script>location.href='/pessoas'</script>";
+      } else {
+        echo "Error: " . $sql_delete . "<br>" . $conn->error;
+      } exit();
+    
+    } // FIM DA if(($acao) == 'delete')
 
 
 

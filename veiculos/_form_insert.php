@@ -13,7 +13,7 @@
         <div class="row gx-1 gy-1 text-center">
           <div class="col-sm">
 
-            <form action='<?=$param1;?>' method='POST' class='row gx-1 gy-1 text-center'>
+            <form action='<?=$param1.$param5;?>insert' method='POST' class='row gx-1 gy-1 text-center'>
             <div class="row gx-1 gy-1">
               <div class="col-sm" >
                 <div class="form-floating">
